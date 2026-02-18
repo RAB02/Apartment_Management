@@ -24,7 +24,7 @@ export default function TenantProfile() {
             {/* Profile Header Info */}
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-3xl font-bold text-gray-900 mb-2">
-                {user ? user.username || "User" : "Your Profile"}
+                {user ? user?.user_metadata?.full_name : "Account"}
               </h1>
               {user && (
                 <p className="text-gray-600">{user.email}</p>

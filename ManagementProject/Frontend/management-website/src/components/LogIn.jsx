@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/navigation";
 import { UserContext } from "@/components/UserContext";
+import { supabase } from "@/lib/supabaseClient";
 
 export default function LogIn() {
   const router = useRouter();
@@ -11,33 +12,19 @@ export default function LogIn() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // ✅ Check Supabase session instead of /verify
   useEffect(() => {
     const checkUser = async () => {
-      try {
-        const res = await fetch("http://localhost:8080/verify", {
-          credentials: "include",
-        });
-        const result = await res.json();
-        console.log("Parsed verify response:", result);
-        if (result.loggedIn) {
-          setUser(result.user);
-          router.replace("/rentals");
-        }
-      } catch (err) {
-        console.log("No active user session");
+      const { data: sessionData } = await supabase.auth.getSession();
+
+      if (sessionData.session?.user) {
+        setUser(sessionData.session.user);
+        router.replace("/rentals");
       }
     };
 
     checkUser();
   }, [router, setUser]);
-
-  useEffect(() => {
-    // When visiting /login, clear any admin cookie
-    fetch("http://localhost:8080/admin/logout", {
-      method: "POST",
-      credentials: "include",
-    }).catch(() => {});
-  }, []);
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -46,7 +33,7 @@ export default function LogIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (data.email === "" || data.password_hash === "") {
+    if (!data.email || !data.password) {
       setError("Please fill in all fields");
       return;
     }
@@ -54,38 +41,25 @@ export default function LogIn() {
     setLoading(true);
     setError("");
 
-    try {
-      const res = await fetch("http://localhost:8080/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include", // ✅ automatically stores HttpOnly cookie
-        body: JSON.stringify(data),
+    const { data: authData, error: authError } =
+      await supabase.auth.signInWithPassword({
+        email: data.email,
+        password: data.password,
       });
 
-      const result = await res.json();
-      console.log("Parsed login response:", result);
-
-      if (!res.ok) {
-        setError(result.error || "Invalid credentials.");
-        setLoading(false);
-        return;
-      }
-
-      if (result.success) {
-        setUser(result.user);
-        window.dispatchEvent(new Event("userChange"));
-        localStorage.removeItem("recentlyViewedRentals");
-
-        router.push("/rentals");
-      } else {
-        setError(result.message || "Login failed.");
-      }
-    } catch (err) {
-      console.error("Login error:", err);
-      setError("Server error. Please try again later.");
-    } finally {
+    if (authError) {
+      setError(authError.message);
       setLoading(false);
+      return;
     }
+
+    // ✅ store user in context
+    setUser(authData.user);
+
+    window.dispatchEvent(new Event("userChange"));
+    localStorage.removeItem("recentlyViewedRentals");
+
+    router.push("/rentals");
   };
 
   return (
@@ -122,7 +96,7 @@ export default function LogIn() {
             id="password"
             name="password"
             placeholder="********"
-            value={data.password_hash}
+            value={data.password}
             onChange={handleChange}
             required
             className="w-full px-3 py-2 border rounded-md"
