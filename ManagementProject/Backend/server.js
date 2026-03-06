@@ -8,7 +8,7 @@ const userRoutes = require("./routes/userRoutes");
 require("dotenv").config();
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 
 // Supabase client
 const supabase = createClient(
@@ -21,7 +21,9 @@ app.use(express.static(path.join(__dirname, "static")));
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: [
+      "https://apartment-management-967j.onrender.com"
+    ],
     credentials: true,
   })
 );
@@ -41,4 +43,5 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 // Start server (no DB open needed)
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
+  console.log(process.env.SUPABASE_URL);
 });

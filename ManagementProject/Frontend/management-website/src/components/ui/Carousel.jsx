@@ -1,6 +1,6 @@
 "use client";
 
-import { IconArrowNarrowRight } from "@tabler/icons-react";
+// import { IconArrowNarrowRight } from "@tabler/icons-react";
 import { useState, useRef, useEffect } from "react";
 
 const Slide = ({ slide, index, current, handleSlideClick }) => {
@@ -91,7 +91,7 @@ const Slide = ({ slide, index, current, handleSlideClick }) => {
             className="mt-3 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition"
           >
             View Details
-            <IconArrowNarrowRight size={18} />
+            {/* <IconArrowNarrowRight size={18} /> */}
           </a>
         )}
       </article>
