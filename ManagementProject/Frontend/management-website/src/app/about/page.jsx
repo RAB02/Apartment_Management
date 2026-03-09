@@ -50,7 +50,7 @@ export default function About() {
               <h3 className="text-lg font-semibold text-gray-900">
                 Ramon Bernal
               </h3>
-              <p className="mt-0.5 text-sm text-gray-700">Team Member</p>
+              <p className="mt-0.5 text-sm text-gray-700">Project Lead & Full-Stack Developer</p>
             </div>
 
             {/* LinkedIn Button */}
@@ -71,8 +71,7 @@ export default function About() {
           </div>
 
           <p className="mt-2 text-gray-700">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,
-            placeat facere? Iste nostrum odio magnam?
+            Led the development of the project and coordinated team tasks. Responsible for both frontend and backend implementation, integrating system components, and ensuring the overall functionality and architecture of the application.
           </p>
         </div>
 
@@ -83,7 +82,7 @@ export default function About() {
               <h3 className="text-lg font-semibold text-gray-900">
               Dante Peraza
               </h3>
-              <p className="mt-0.5 text-sm text-gray-700">Team Member</p>
+              <p className="mt-0.5 text-sm text-gray-700">Deployment Engineer</p>
             </div>
 
             <a
@@ -103,8 +102,7 @@ export default function About() {
           </div>
 
           <p className="mt-2 text-gray-700">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,
-            placeat facere? Iste nostrum odio magnam?
+            Managed the deployment process and infrastructure setup, ensuring the application was properly configured and accessible in the production environment.
           </p>
         </div>
 
@@ -115,7 +113,7 @@ export default function About() {
               <h3 className="text-lg font-semibold text-gray-900">
                 Steven Valdez
               </h3>
-              <p className="mt-0.5 text-sm text-gray-700">Team Member</p>
+              <p className="mt-0.5 text-sm text-gray-700">Frontend Developer</p>
             </div>
 
             <a
@@ -135,8 +133,7 @@ export default function About() {
           </div>
 
           <p className="mt-2 text-gray-700">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,
-            placeat facere? Iste nostrum odio magnam?
+            Focused on building and implementing the user interface, creating responsive components, and ensuring a smooth user experience across the application.
           </p>
         </div>
 
@@ -147,7 +144,7 @@ export default function About() {
               <h3 className="text-lg font-semibold text-gray-900">
                 Ian Fedele
               </h3>
-              <p className="mt-0.5 text-sm text-gray-700">Team Member</p>
+              <p className="mt-0.5 text-sm text-gray-700">Backend Developer</p>
             </div>
 
         {/* Linkdin instead of # */}
@@ -168,8 +165,7 @@ export default function About() {
           </div>
 
           <p className="mt-2 text-gray-700">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,
-            placeat facere? Iste nostrum odio magnam?
+            Developed server-side functionality, implemented API endpoints, and managed data handling to support the application's core features.
           </p>
         </div>
       </div>
