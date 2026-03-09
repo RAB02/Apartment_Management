@@ -5,38 +5,40 @@ export default function About() {
         <h1 className="text-6xl font-bold text-blue-900 mb-6">About Us</h1>
 
         <p className="text-lg leading-relaxed mb-8">
-          Welcome to our apartment management website!
+          Welcome to our apartment management platform. Our goal is to simplify
+          the process of finding quality housing while connecting residents with
+          comfortable and well-maintained living spaces.
         </p>
 
         <h2 className="text-4xl font-semibold text-blue-800 mb-3">
           Our Mission
         </h2>
         <p className="text-base mb-8">
-          Our mission is to create a welcoming and inclusive environment where
-          residents can thrive. From thoughtfully designed spaces to community
-          events, we strive to make all of our lsitings not just a place to live — but a
-          place to call home.
+          Our mission is to provide residents with reliable housing options and
+          a seamless rental experience. We strive to create welcoming living
+          environments by offering thoughtfully selected properties in desirable
+          locations, ensuring comfort, convenience, and community for every
+          resident.
         </p>
 
         <h2 className="text-4xl font-semibold text-blue-800 mb-3">
           What We Offer
         </h2>
         <ul className="list-disc list-inside mb-8 space-y-2">
-          <li>Spacious studio, one-, two-, and three-bedroom apartments and homes.</li>
-          <li>
-            Great neighborhoods close to schools, dining, shopping, and
-            entertainment
-          </li>
-          <li>Pet-friendly environments with outdoor walking spaces</li>
+          <li>Spacious studio, one-, two-, and three-bedroom apartments and homes</li>
+          <li>Properties located near schools, dining, shopping, and entertainment</li>
+          <li>Pet-friendly communities with accessible outdoor spaces</li>
         </ul>
 
         <h2 className="text-4xl font-semibold text-blue-800 mb-3">
           Why Choose Us
         </h2>
         <p className="text-base mb-8">
-          Whether you're a student, professional, or growing family, we provide
-          the perfect balance of comfort, style, and convenience. Experience
-          vibrant living with communities that feel like home.
+          Whether you're a student, working professional, or part of a growing
+          family, our platform helps you discover housing options that balance
+          comfort, accessibility, and quality. We aim to make the apartment
+          search process straightforward and dependable while helping residents
+          find a place they are proud to call home.
         </p>
 
         <h2 className="text-4xl font-semibold text-blue-800 mb-6">
